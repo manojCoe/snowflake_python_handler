@@ -14,7 +14,7 @@ warehouse = os.getenv('WAREHOUSE')
 database = os.getenv('DATABASE')
 schema = os.getenv('SCHEMA')
 role = os.getenv('ROLE')
-
+csv = os.getenv("CSV")
 # class Handler(SnowflakeConnection):
 #     # def __init__(self):
 #     #     super.__init__()
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             "role": role
          }
     obj = Handler(params)
-    df = pd.read_csv("C:/Users/coe16/Downloads/diabetes.csv")
+    df = pd.read_csv(csv)
     print(df.info())
     print(df.head())
     query = 'create or replace table "DIABETES" ("Pregnancies" int, "Glucose" int, "BloodPressure" int, "SkinThickness" int, "Insulin" int, "BMI" double, "DiabetesPedigreeFunction" float, "Age" int, "Outcome" int)'
